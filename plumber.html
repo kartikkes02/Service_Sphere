@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plumber Services - Service Sphere</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff7e0;
+            color: #004d00;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            background-color: #f5c542;
+            color: #004d00;
+            padding: 1em;
+            margin: 0;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: #f5c542;
+            gap: 20px;
+            /* Adds space between search bar and dropdown */
+        }
+        
+        .search-bar,
+        .area-select {
+            max-width: 180px;
+            /* Smaller width */
+        }
+        
+        .search-bar input,
+        .area-select select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #004d00;
+        }
+        
+        .services-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-y: scroll;
+            height: 75vh;
+        }
+        
+        .service-card {
+            background-color: #f0e68c;
+            border: 1px solid #004d00;
+            border-radius: 8px;
+            width: 80%;
+            /* Reduced width */
+            padding: 15px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image {
+            width: 100px;
+            /* Increased width */
+            height: 100px;
+            /* Increased height */
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .service-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #004d00;
+        }
+        
+        .price,
+        .time-required {
+            font-weight: bold;
+            color: #004d00;
+        }
+        
+        .add-to-cart-btn {
+            background-color: #f5c542;
+            color: #004d00;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Plumber Services</h1>
+
+    <!-- Top Bar with Search and Area Selection -->
+    <div class="top-bar">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for services..." onkeyup="filterServices()">
+        </div>
+        <div class="area-select">
+            <select>
+                <option value="">Select Area in Delhi</option>
+                <option value="south-delhi">South Delhi</option>
+                <option value="north-delhi">North Delhi</option>
+                <option value="east-delhi">East Delhi</option>
+                <option value="west-delhi">West Delhi</option>
+                <option value="central-delhi">Central Delhi</option>
+                <option value="south-west-delhi">South-West Delhi</option>
+                <option value="north-east-delhi">North-East Delhi</option>
+                <option value="south-east-delhi">South-East Delhi</option>
+                <option value="north-west-delhi">North-West Delhi</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Scrollable Service List -->
+    <div class="services-container" id="servicesContainer">
+        <div class="service-card" data-title="Pipe Repair">
+            <img src="images/pipe_repair.jpg" alt="Pipe Repair" class="service-image">
+            <div>
+                <p class="service-title">Pipe Repair</p>
+                <p>Repair of damaged or leaking pipes for efficient water flow.</p>
+                <p><span class="price">₹400</span> - <span class="time-required">40 mins</span></p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="service-card" data-title="Leak Fixing">
+            <img src="images/leak_fixing.jpg" alt="Leak Fixing" class="service-image">
+            <div>
+                <p class="service-title">Leak Fixing</p>
+                <p>Fixing leaks in faucets, showerheads, and pipes to prevent water wastage.</p>
+                <p><span class="price">₹350</span> - <span class="time-required">30 mins</span></p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="service-card" data-title="Drain Unclogging">
+            <img src="images/drain_unclogging.jpg" alt="Drain Unclogging" class="service-image">
+            <div>
+                <p class="service-title">Drain Unclogging</p>
+                <p>Unclogging and cleaning drains to ensure smooth water flow.</p>
+                <p><span class="price">₹250</span> - <span class="time-required">40 mins</span></p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="service-card" data-title="Faucet Installation">
+            <img src="images/faucet_installation.jpg" alt="Faucet Installation" class="service-image">
+            <div>
+                <p class="service-title">Faucet Installation</p>
+                <p>Installation of faucets, including modern designs for efficient water use.</p>
+                <p><span class="price">₹180</span> - <span class="time-required">25 mins</span></p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="service-card" data-title="Water Heater Installation">
+            <img src="images/water_heater_installation.jpg" alt="Water Heater Installation" class="service-image">
+            <div>
+                <p class="service-title">Water Heater Installation</p>
+                <p>Efficient installation of water heaters for warm water supply.</p>
+                <p><span class="price">₹500</span> - <span class="time-required">50 mins</span></p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="service-card" data-title="Toilet Repair">
+            <img src="images/toilet_repair.jpg" alt="Toilet Repair" class="service-image">
+            <div>
+                <p class="service-title">Toilet Repair</p>
+                <p>Repair and maintenance of toilets to prevent leakage and blockages.</p>
+                <p><span class="price">₹450</span> - <span class="time-required">45 mins</span></p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterServices() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const serviceCards = document.querySelectorAll(".service-card");
+
+            serviceCards.forEach(card => {
+                const title = card.getAttribute("data-title").toLowerCase();
+                if (title.includes(input)) {
+                    card.style.display = "flex"; // Show matching service
+                } else {
+                    card.style.display = "none"; // Hide non-matching service
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
