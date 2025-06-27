@@ -1,6 +1,6 @@
 # Service Sphere - Home Services Platform 🏠
 
-[!Servuce Sphere logo](logo2.jpeg)  
+[!Service Sphere logo](logo2.jpeg)  
 🔌 🎨 🚿 *Your one-stop solution for all home services in Delhi*
 
 ## ✨ Features
